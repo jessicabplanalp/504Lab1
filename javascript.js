@@ -1,3 +1,5 @@
+//Initialize the map in the JavaScript file, setting the map to display the whole world. We'll use Mapbox tiles for the basemap. Be sure to replace {accessToken} with your own personal Mapbox access token:
+
 var map = L.map('map').fitWorld();
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={pk.eyJ1IjoiamVzc2ljYWJwbGFuYWxwIiwiYSI6ImNrMndvN2g0cjBoam0zYmw2eXd0bm12bTcifQ.RNICUHzCzEvRkIPxzq_RBg}', {
@@ -23,6 +25,5 @@ function onLocationError(e) {
 
 map.on('locationerror', onLocationError);
 
+//At the bottom of your JavaScript code, call the locate method with the following options:
 map.locate({setView: true, maxZoom: 16});
-tileSize: 512,
-    zoomOffset: -1,
