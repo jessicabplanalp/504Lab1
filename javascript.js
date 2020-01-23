@@ -45,6 +45,20 @@ map.on('locationfound', onLocationFound); //this is the event listener
 
 function onLocationError(e) {
   alert(e.message);
+  var times = SunCalc.getTimes(new Date(), e.latitude, e.longitude);
+var sunrise = times.sunrise.getHours();
+var sunset = times.sunset.getHours();
+
+
+var currentTime = new Date().getHours();
+    if (sunrise < currentTime && currentTime < sunset){
+      map.removeLayer(dark);
+      map.addLayer(light);
+    }
+    else {
+      map.removeLayer(light);
+      map.addLayer(dark);
+    }
 }
 
 map.on('locationerror', onLocationError);
