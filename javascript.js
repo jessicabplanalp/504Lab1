@@ -74,5 +74,5 @@ map.on('locationerror', onLocationError);
 map.locate({setView: true, maxZoom: 16});
 
 function myFunction() {
-  alert("This webpage will ask you to allow access to your location. Location data is required in order to fully utilized This data will not be stored or shared.");
+  alert("This webpage will ask you to allow access to your location. Location data is required in order to fully utilize this map. This data will not be stored or shared.");
 }
