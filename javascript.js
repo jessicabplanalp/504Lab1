@@ -36,24 +36,22 @@ function onLocationFound(e) {
           }
           else{
               L.circle(e.latlng, radius, {color: 'red'}).addTo(map);
-
+            }
               var times = SunCalc.getTimes(new Date(), e.latitude, e.longitude);
               var sunrise = times.sunrise.getHours();
               var sunset = times.sunset.getHours();
 
 
-              var currentTime = new Date().getHours();
-                  if (sunrise < currentTime && currentTime < sunset){
-                    map.removeLayer(dark);
-                    map.addLayer(light);
-                  }
-                  else {
-                    map.removeLayer(light);
-                    map.addLayer(dark);
-                  }
-
-
-          }
+          var currentTime = new Date().getHours();
+              if (sunrise < currentTime && currentTime < sunset){
+                map.removeLayer(dark);
+                map.addLayer(light);
+              }
+              else {
+                map.removeLayer(light);
+                map.addLayer(dark);
+              }
+}
 
   //  L.circle(e.latlng, radius).addTo(map); //this adds a circle to the map centered at the lat and long returned by the locate function. Its radius is set to the var radius defined above.
 //}
